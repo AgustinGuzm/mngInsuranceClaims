@@ -1,0 +1,43 @@
+package com.hexa.models;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "customers")
+public class customers {
+
+	   // Define fields to use in the table
+		@Id //primary key for customerId
+		@GeneratedValue(strategy=GenerationType.IDENTITY) //auto generate the value for id
+		private Integer customerId; //Id to identify the customer
+		@Column(nullable = false, length =45)
+		private String firstName; //customer first name
+		@Column
+		private String middleName;//customer middle name
+		@Column
+		private String lastName;//customer last name
+		@Column(nullable=false)//, unique=true)
+		private String email;//customer email address
+		@Column
+		private String phoneNumber;//customer phone number
+		@Column
+		private Date   enrolldate;// date when the customer was enrolled in the system
+		@Column
+		private String address;//customer physical address
+		@Column
+		private String cityAddress;//city of physical address
+		@Column
+		private String zipcodeAddress;//Zip-code of address
+		@Column
+		private String stateAddress;//State; department; province
+		@Column
+		private Boolean enrolled; // define is enrrolled is active (true) or not enrolled(false)	
+	
+}

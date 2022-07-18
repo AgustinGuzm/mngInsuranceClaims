@@ -1,0 +1,31 @@
+package com.hexa.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="claims")
+public class claims {
+
+	   // Define fields to use in the table
+		@Id //primary key for customerId
+		@GeneratedValue(strategy=GenerationType.IDENTITY) //auto generate the value for id
+		private Integer claimsId; //Id to identify the customer
+		
+		@ManyToOne
+		@JoinColumn(name="customerId")
+		private customers customer;
+		
+		@Column(name="claimDescription", nullable=false, length=512)
+		private String claimDescription;
+		
+		@Column(name="claimStatus", nullable=false)
+		private Integer claimStatus;		
+	
+}
